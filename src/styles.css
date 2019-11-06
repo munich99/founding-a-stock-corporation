@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+.stock {
+    max-width: 400px;
+    margin: 50px auto;
+    font-size: 1.2em;
+}
+
+.card {
+    margin-bottom: 40px;
+    text-align: center;
+    border-radius: 4px;
+    padding: 20px 0;
+    box-shadow: 0 1px 16px 0 rgba(0, 0, 0, .2), 0 2px 8px 0 rgba(0, 0, 0, .14), 0 4px 8px -1px rgba(0, 0, 0, .12);
+  }
+
+  .card-title {
+      color:red;
+      font-size: 2em;
+  }
