@@ -1,11 +1,11 @@
 <div class="stock">
         <div class="card">
             <div>
-              title
+              {{stock.description}}
             </div>
-            <img src="../assets/cash.png" alt="cash">
+            <img [src]="stock.iconUrl" alt="cash">
             <div>
-              beschreibung
+              {{stock.longDescription}}
             </div>
         </div>    
       </div>
