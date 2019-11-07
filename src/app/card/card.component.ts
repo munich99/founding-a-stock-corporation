@@ -17,6 +17,10 @@ export class CardComponent implements OnInit {
 
   ngOnInit() {
   }
-  /*alert("ee");
-  console.log("22");*/
+
+  showClick(hallo:any) {
+    console.log(hallo);
+
+  }
+
 }
