@@ -1,13 +1,13 @@
 <div class="stock">
         <div class="card">
-            <div>
+            <div [ngStyle]="setStyles()">
               {{stock.description}}
             </div>            
 
             <div *ngFor="let bild of repeat">
               <img 
-              [ngClass]="status ? 'success' : 'half'"
-               [src]="stock.iconUrl" alt="stocks">
+                [ngStyle]="setStyles()"
+                [src]="stock.iconUrl" alt="stocks">
             </div>
             
             

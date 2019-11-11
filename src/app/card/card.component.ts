@@ -20,6 +20,19 @@ export class CardComponent implements OnInit {
 
   status:boolean=false;
 
+toggleStyle: boolean = false;
+
+width:string = "25%";
+setStyles() {
+  
+  let styles = {
+    'width': this.toggleStyle ? '50%' : this.width,
+    
+  };
+  console.log(styles);
+  return styles;
+}
+
 
     showClick() {
     
@@ -31,6 +44,9 @@ export class CardComponent implements OnInit {
     
     console.log(this.status);
     this.changeProportion.emit(this.stock);
+
+    this.toggleStyle= true;
+    
 
   }
 
