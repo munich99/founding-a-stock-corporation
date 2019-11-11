@@ -1,10 +1,10 @@
-<h1 style="text-align: center;">{{stockStock.description}}</h1>
 
-<app-card [stock]="stockStock"></app-card>
 
-<app-card [stock]="stockPeople"></app-card>
+<app-card  *ngFor="let stocks of stock"
+[stock]="stocks"
+(changeProportion)="onChangeProportion($event)
+"></app-card>
 
-<app-card [stock]="stockMoney"></app-card>
    
 
 

@@ -2,11 +2,20 @@
         <div class="card">
             <div>
               {{stock.description}}
+            </div>            
+
+            <div *ngFor="let bild of repeat">
+              <img 
+              [ngClass]="status ? 'success' : 'half'"
+               [src]="stock.iconUrl" alt="stocks">
             </div>
-            <img [src]="stock.iconUrl" alt="cash">
+            
+            
             <div>
               {{stock.longDescription}}
             </div>
-            <button (click)="showClick(stock.lessonsCount)">{{stock.category}}</button>
+            <button (click)="showClick()">{{stock.category}}</button>
         </div>    
       </div>
+
+    <!--  *ngFor="let bilder of count"-->

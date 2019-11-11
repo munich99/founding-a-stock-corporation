@@ -1,5 +1,6 @@
-import { Component, Output } from '@angular/core';
+import { Component, Output, NgModule } from '@angular/core';
 import { STOCKS } from '../db-data';
+import { Stock } from './model/stock';
 
 
 @Component({
@@ -10,10 +11,15 @@ import { STOCKS } from '../db-data';
 
 
 export class AppComponent {
+
+  countnumber="../../assets/stockpaper.png";
+
+  stock:Stock=STOCKS;
   
+  
+  onChangeProportion(xx:Stock){
 
+  console.log(xx)
+  }
 
-  stockStock = STOCKS[0];
-  stockPeople = STOCKS[1];
-  stockMoney = STOCKS[2];
 }
