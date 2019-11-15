@@ -16,37 +16,24 @@ export class CardComponent implements OnInit {
   @Output()
   changeProportion = new EventEmitter();
 
-  repeat: any = [ "erstes" ];
+  repeat: any = [ "erstes" ];  
 
-  status:boolean=false;
+  imgWidth:number;
 
-toggleStyle: boolean = false;
-
-width:string = "25%";
-setStyles() {
-  
-  let styles = {
-    'width': this.toggleStyle ? '50%' : this.width,
-    
-  };
-  console.log(styles);
-  return styles;
-}
+  setStyles(xx:number) {    
+   // console.log(xx);
+    if (xx > 2) {
+      this.imgWidth=30;
+    } else {
+      this.imgWidth=50;
+    }
+    return {"width": this.imgWidth + "%"}
+  }
 
 
-    showClick() {
-    
-    this.repeat.push("element1");
-
-
-    this.status=!this.status;
-
-    
-    console.log(this.status);
+  showClick() {  
+    this.repeat.push("element1");  
     this.changeProportion.emit(this.stock);
-
-    this.toggleStyle= true;
-    
 
   }
 
