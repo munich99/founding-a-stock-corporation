@@ -16,23 +16,30 @@ export class CardComponent implements OnInit {
   @Output()
   changeProportion = new EventEmitter();
 
-  repeat: any = [ "erstes" ];  
+  repeat: any = [ "erstes" ];    
+ 
 
-  imgWidth:number;
-  descriptionNumbers:number = 1;
+  setStyles() {   
 
-  setStyles() {    
-   
-    if(this.descriptionNumbers > 2)
-    return {"width": "20%", "display": "inline"}
+    if(this.repeat.length > 1 ) {
+      if(this.repeat.length < 5 ) {
+        return {"width": "50%", "display": "inline"};
+      } 
+      if(this.repeat.length > 4 ) {
+        return {"width": "25%", "display": "inline"};
+      }
+    }
+
+
   }
-
+ 
 
   showClick() {  
     this.repeat.push("element1");  
     this.changeProportion.emit(this.stock);
    
-    this.descriptionNumbers = this.descriptionNumbers +1;
+    
+    console.log(this.repeat.length);
   }
 
   constructor() { }
