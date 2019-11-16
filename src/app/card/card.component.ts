@@ -19,22 +19,20 @@ export class CardComponent implements OnInit {
   repeat: any = [ "erstes" ];  
 
   imgWidth:number;
+  descriptionNumbers:number = 1;
 
-  setStyles(xx:number) {    
-   // console.log(xx);
-    if (xx > 2) {
-      this.imgWidth=30;
-    } else {
-      this.imgWidth=50;
-    }
-    return {"width": this.imgWidth + "%"}
+  setStyles() {    
+   
+    if(this.descriptionNumbers > 2)
+    return {"width": "20%", "display": "inline"}
   }
 
 
   showClick() {  
     this.repeat.push("element1");  
     this.changeProportion.emit(this.stock);
-
+   
+    this.descriptionNumbers = this.descriptionNumbers +1;
   }
 
   constructor() { }

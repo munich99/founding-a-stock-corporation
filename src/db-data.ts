@@ -29,6 +29,3 @@ export const STOCKS: any = [
 ];
 
 
-export function findCourseById(courseId:number) {
-    return STOCKS.find(course => course.id === courseId);
-}

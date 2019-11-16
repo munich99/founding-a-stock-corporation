@@ -4,11 +4,13 @@
               {{stock.description}}
             </div>            
 
-            <div *ngFor="let bild of repeat; index as indexNummer">
-              <img [src]="stock.iconUrl" alt="stocks"
-              [ngStyle]="setStyles(indexNummer)"
+            <div  >
+              <img
+              *ngFor="let bild of repeat; index as indexNummer"
+              [src]="stock.iconUrl" alt="stocks"
+              [ngStyle]="setStyles()"  
               >
-              <span>{{indexNummer + 1}}</span>
+              <!--span>{{indexNummer + 1}}</span-->
             </div>            
             
             <div>
