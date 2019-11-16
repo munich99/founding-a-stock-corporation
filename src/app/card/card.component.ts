@@ -34,12 +34,18 @@ export class CardComponent implements OnInit {
   }
  
 
-  showClick() {  
-    this.repeat.push("element1");  
+  showClick(bill:string) {  
+    if (bill  == "more")
+      this.repeat.push("element1")
+    else {
+
+      if (bill  == "less" && this.repeat.length > 1) {      
+          this.repeat.pop()      
+      }
+    }
+
     this.changeProportion.emit(this.stock);
    
-    
-    console.log(this.repeat.length);
   }
 
   constructor() { }

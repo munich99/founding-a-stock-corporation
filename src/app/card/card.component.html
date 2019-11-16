@@ -16,7 +16,8 @@
             <div>
               {{stock.longDescription}}
             </div>
-            <button (click)="showClick()">{{stock.category}}</button>
+            <button (click)="showClick('less')">less {{stock.category}}</button>
+            <button (click)="showClick('more')">more {{stock.category}}</button>
         </div>    
       </div>
 

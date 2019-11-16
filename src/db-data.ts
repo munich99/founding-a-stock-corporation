@@ -5,7 +5,7 @@ export const STOCKS: any = [
         description: "Numbers of Stocks",
         iconUrl: '../assets/stockpaper.png',
         longDescription: "A detailed walk-through of the most important part of Angular - the Core and Common modules",
-        category: 'More Stocks',
+        category: 'Stocks',
         lessonsCount: 11
     },
     {
@@ -13,13 +13,13 @@ export const STOCKS: any = [
         description: "Numbers of Owners",
         iconUrl: '../assets/man.png',
         longDescription: "Understand the RxJs Observable pattern, learn the RxJs Operators via practical examples",
-        category: 'More Ownwers',
+        category: 'Ownwers',
         lessonsCount: 10
     },
 
     {
         id: 3,
-        description: 'Money Supply',
+        description: 'Money',
         longDescription: "Learn the modern Ngrx Ecosystem, including Store, Effects, Router Store, Ngrx Entity, Dev Tools and Schematics.",
         iconUrl: '../assets/cash.png',
         category: 'More Money',
