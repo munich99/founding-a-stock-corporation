@@ -44,11 +44,11 @@ export class CardComponent implements OnInit {
     else {
       if (this.repeat[this.repeat.length-1]  == this.stock.iconUrl && this.repeat.length > 1) 
          this.repeat.pop()  
-      
-      if (this.repeat[this.repeat.length-1]  == this.stock.iconUrl100)
-       this.repeat.splice((this.repeat.length-1), 1, this.stock.iconUrl,this.stock.iconUrl, this.stock.iconUrl, this.stock.iconUrl);
+         else    
+         this.repeat.splice((this.repeat.length-1), 1, this.stock.iconUrl,this.stock.iconUrl,
+                           this.stock.iconUrl, this.stock.iconUrl);
           
-      console.log(this.repeat)
+      console.log(this.repeat, "letzer")
     }
     // this.changeProportion.emit(this.stock);
    
