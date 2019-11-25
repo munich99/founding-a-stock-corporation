@@ -16,27 +16,39 @@ export class CardComponent implements OnInit {
   @Output()
   changeProportion = new EventEmitter();
 
-  repeat: any = [ "erstes" ];    
+  repeat: any = [ "erstes" ];   
+
+  show(indexNummer:number){    
+   if(((indexNummer+1) % 5 ) == 0)
+          {
+            return true;
+            }
+  }
+
+
+  showDetail(indexNummer:number){  
+
+    if( this.repeat.length < 5 || this.repeat.length >7)   
+      return true;
  
+  }
 
-  setStyles() {   
-
-    if(this.repeat.length > 1 ) {
-      if(this.repeat.length < 5 ) {
+  setStyles() {  
+    if(this.repeat.length > 1 && this.repeat.length <5 )
         return {"width": "50%", "display": "inline"};
-      } 
-      if(this.repeat.length > 4 ) {
+      
+      if(this.repeat.length >= 5 ) 
         return {"width": "25%", "display": "inline"};
-      }
-    }
-
-
   }
  
 
   showClick(bill:string) {  
-    if (bill  == "more")
-      this.repeat.push("element1")
+    if (bill  == "more") {
+      this.repeat.push(this.stock.description)
+      // hier ein normales if
+      
+        
+    }
     else {
 
       if (bill  == "less" && this.repeat.length > 1) {      

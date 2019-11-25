@@ -1,23 +1,36 @@
 <div class="stock">
         <div class="card">
             <div [ngStyle]="setStyles()">
-              {{stock.description}}
+              {{stock.description + Detailconst}}
             </div>            
 
-            <div  >
-              <img
+            <div>
+              <div 
               *ngFor="let bild of repeat; index as indexNummer"
-              [src]="stock.iconUrl" alt="stocks"
-              [ngStyle]="setStyles()"  
+              [style.display]="'inline'"               
               >
+
               <!--span>{{indexNummer + 1}}</span-->
+
+                <img *ngIf="show(indexNummer);"                
+                [src]="this.stock.iconUrl100" alt="stocks"
+                [ngStyle]="setStyles()"  
+                >
+
+                <img *ngIf="showDetail(indexNummer);"                
+                [src]="this.stock.iconUrl" alt="stocks"
+                [ngStyle]="setStyles()"  
+                >
+
+                
+              </div>
             </div>            
             
             <div>
               {{stock.longDescription}}
             </div>
-            <button (click)="showClick('less')">less {{stock.category}}</button>
-            <button (click)="showClick('more')">more {{stock.category}}</button>
+            <button [style.margin-right]="'5px'" (click)="showClick('less')">less {{stock.category}}</button>
+            <button [style.margin-left]="'5px'" (click)="showClick('more')">more {{stock.category}}</button>
         </div>    
       </div>
 

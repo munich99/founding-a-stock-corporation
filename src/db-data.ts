@@ -4,6 +4,7 @@ export const STOCKS: any = [
         id: 1,
         description: "Numbers of Stocks",
         iconUrl: '../assets/stockpaper.png',
+        iconUrl100: '../assets/stockpaper100.png',
         longDescription: "A detailed walk-through of the most important part of Angular - the Core and Common modules",
         category: 'Stocks',
         lessonsCount: 11

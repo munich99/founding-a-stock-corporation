@@ -19,7 +19,7 @@ export class AppComponent {
   
   onChangeProportion(xx:Stock){
 
-  console.log(xx)
+  // console.log(xx)
   }
 
 }
