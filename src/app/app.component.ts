@@ -13,8 +13,8 @@ import { Stock } from './model/stock';
 export class AppComponent {
 
   countnumber="../../assets/stockpaper.png";
-
   stock:Stock=STOCKS;
+  
   
   
   onChangeProportion(xx:Stock){
