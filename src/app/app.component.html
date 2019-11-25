@@ -3,8 +3,10 @@ say new-idea-img
 
 <app-card  *ngFor="let stocks of stock"
 [stock]="stocks"
-(changeProportion)="onChangeProportion($event)
-"></app-card>
+(changeProportion)="onChangeProportion($event)"
+[altern] = "stocks.iconUrl"
+>
+</app-card>
 
    
 

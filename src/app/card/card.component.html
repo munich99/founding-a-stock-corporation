@@ -8,9 +8,9 @@
               <div>
 
                 <img *ngFor="let bild of repeat"              
-                [src]="this.stock.iconUrl" [alt]="bild"
-                 
-                >
+                [src]="bild" [alt]="bild"
+                > 
+                <!--[src]="this.stock.iconUrl" [alt]="bild"-->
 
                 <!--img *ngIf="showDetail(indexNummer);"                
                 [src]="this.stock.iconUrl" alt="stocks"
