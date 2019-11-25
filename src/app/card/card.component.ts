@@ -20,7 +20,7 @@ export class CardComponent implements OnInit {
 
   repeat: any;  
   
-  count:number = 1;
+  count:number;
 
 
   showClick(bill:string) {  
@@ -38,14 +38,17 @@ export class CardComponent implements OnInit {
             for(var i = 0; i < 4; ++i){
               this.repeat.pop();    
             }            
-            this.repeat.push(this.stock.iconUrl100);
-            console.log(this.repeat, "ganzes stück")
+            this.repeat.push(this.stock.iconUrl100);           
           }
     }
     else {
-      if (bill  == "less" && this.repeat.length > 1) {      
-          this.repeat.pop()      
-      }
+      if (this.repeat[this.repeat.length-1]  == this.stock.iconUrl && this.repeat.length > 1) 
+         this.repeat.pop()  
+      
+      if (this.repeat[this.repeat.length-1]  == this.stock.iconUrl100)
+       this.repeat.splice((this.repeat.length-1), 1, this.stock.iconUrl,this.stock.iconUrl, this.stock.iconUrl, this.stock.iconUrl);
+          
+      console.log(this.repeat)
     }
     // this.changeProportion.emit(this.stock);
    
