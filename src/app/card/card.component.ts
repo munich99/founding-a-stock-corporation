@@ -16,39 +16,39 @@ export class CardComponent implements OnInit {
   @Output()
   changeProportion = new EventEmitter();
 
-  repeat: any = [ "erstes" ];   
-
-  show(indexNummer:number){    
-   if(((indexNummer+1) % 5 ) == 0)
-          {
-            return true;
-            }
-  }
-
-
-  showDetail(indexNummer:number){  
-
-    if( this.repeat.length < 5 || this.repeat.length >7)   
-      return true;
- 
-  }
-
-  setStyles() {  
-    if(this.repeat.length > 1 && this.repeat.length <5 )
-        return {"width": "50%", "display": "inline"};
-      
-      if(this.repeat.length >= 5 ) 
-        return {"width": "25%", "display": "inline"};
-  }
- 
+  repeat: any = [ "detail" ];  
+  
+  count:number = 1;
 
   showClick(bill:string) {  
     if (bill  == "more") {
-      this.repeat.push(this.stock.description)
-      // hier ein normales if
-      
-        
+          this.count = 1;
+
+          for(var i = 0; i < this.repeat.length; ++i){            
+              if(this.repeat[i] == "detail") 
+              this.count++;
+          } 
+
+          console.log(this.repeat.length, "repeat-länge")
+          console.log(this.count, "count")
+
+        if (this.count < 5) {
+            this.repeat.push("detail");          
+          }
+          else {
+            for(var i = 0; i < 4; ++i){
+              this.repeat.pop();    
+            }            
+            this.repeat.push("retail");
+            console.log(this.repeat, "ganzes stück")
+          }
+
     }
+
+
+
+
+
     else {
 
       if (bill  == "less" && this.repeat.length > 1) {      
@@ -56,13 +56,17 @@ export class CardComponent implements OnInit {
       }
     }
 
-    this.changeProportion.emit(this.stock);
+    // this.changeProportion.emit(this.stock);
    
   }
 
-  constructor() { }
+  constructor() {
+    
+   }
 
   ngOnInit() {
+
+    
   }
 
 
