@@ -11,10 +11,10 @@ export const STOCKS: any = [
     },
     {
         id: 2,
-        description: "Numbers of Owners",
-        iconUrl: '../assets/man.png',
+        description: "Share Price",
+        iconUrl: '../assets/stockprice.png',
         longDescription: "Understand the RxJs Observable pattern, learn the RxJs Operators via practical examples",
-        category: 'Ownwers',
+        category: 'Price',
         lessonsCount: 10
     },
 
