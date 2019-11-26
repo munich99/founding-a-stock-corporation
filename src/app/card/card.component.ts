@@ -44,11 +44,12 @@ export class CardComponent implements OnInit {
     else {
       if (this.repeat[this.repeat.length-1]  == this.stock.iconUrl && this.repeat.length > 1) 
          this.repeat.pop()  
-      else    
-         this.repeat.splice((this.repeat.length-1), 1,
-          this.stock.iconUrl,this.stock.iconUrl,
-          this.stock.iconUrl, this.stock.iconUrl
-         );
+      else  { 
+        if (this.repeat == this.stock.iconUrl100) 
+            this.repeat.splice((this.repeat.length-1), 1,
+            this.stock.iconUrl,this.stock.iconUrl,
+            this.stock.iconUrl, this.stock.iconUrl
+            ); }
     }
     // this.changeProportion.emit(this.stock);   
   }
