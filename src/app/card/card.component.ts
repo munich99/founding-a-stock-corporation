@@ -20,9 +20,9 @@ export class CardComponent implements OnInit {
 
   repeat: any;  
   
-  count:number=1;
+  count:number;
 
-  aktienZahl:boolean= false;
+  aktienZahl:boolean;
 
 
   showClick(bill:string) {  
@@ -57,7 +57,7 @@ export class CardComponent implements OnInit {
     
     if (bill  == "more" && this.stock.category == "Price") {
       this.count = this.count +1;
-      this.aktienZahl = true;
+      
 
     }
   }
@@ -66,6 +66,14 @@ export class CardComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.repeat = [ this.altern ];   
+    this.repeat = [ this.altern ];
+
+    if (this.stock.category == "Price") {
+    this.count = 1;
+    this.aktienZahl = true;
+    }
+
   }
+
+  
 }

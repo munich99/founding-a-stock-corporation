@@ -5,10 +5,13 @@
             </div>            
 
             <div>
-              <div>
-
-                <p *ngIf="aktienZahl">{{count}}</p>
-
+              <div [style.position]="'relative'">
+                  
+                <div>
+                  <p *ngIf="aktienZahl"
+                   class="aktienzahl">
+                   {{count}}</p>
+                </div>
                 <img *ngFor="let bild of repeat"              
                 [src]="bild"
                 [alt]="bild"
