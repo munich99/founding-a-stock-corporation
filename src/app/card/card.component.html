@@ -5,26 +5,44 @@
             </div>            
 
             <div>
-              <div [style.position]="'relative'">
-                  
-                <div>
-                  <p *ngIf="aktienZahl"
-                   class="aktienzahl">
-                   {{count}}</p>
-                </div>
-                <img *ngFor="let bild of repeat"              
+
+                <!-- element for Stocks-->
+              <div *ngIf="StocksZahl" [style.position]="'relative'">
+                <img 
+                *ngFor="let bild of repeat"           
                 [src]="bild"
                 [alt]="bild"
                 > 
-                <!--[src]="this.stock.iconUrl" [alt]="bild"-->
-
-                <!--img *ngIf="showDetail(indexNummer);"                
-                [src]="this.stock.iconUrl" alt="stocks"
-                [ngStyle]="setStyles()"  
-                -->
-
                 
               </div>
+              <!-- element for Price-->
+              <div *ngIf="PriceZahl" [style.position]="'relative'">
+                  
+                  <div>
+                    <p class="aktienzahl">
+                     {{count}} $</p>
+                  </div>
+                  <img            
+                  [src]="stock.iconUrl"
+                  [alt]="stock.iconUrl"
+                  > 
+                  
+                </div>
+
+              <!-- element for Money-->
+              <div *ngIf="MoneyZahl" [style.position]="'relative'">
+                  
+                  <div>
+                    <p class="aktienzahl">
+                     {{count}} $</p>
+                  </div>
+                  <img 
+                  *ngFor="let bild of repeat"           
+                  [src]="bild"
+                  [alt]="bild"
+                  > 
+                  
+                </div>
             </div>            
             
             <div>

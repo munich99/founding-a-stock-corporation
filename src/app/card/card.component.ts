@@ -22,7 +22,8 @@ export class CardComponent implements OnInit {
   
   count:number;
 
-  aktienZahl:boolean;
+  StocksZahl:boolean;
+  PriceZahl:boolean;
 
 
   showClick(bill:string) {  
@@ -55,11 +56,9 @@ export class CardComponent implements OnInit {
     // this.changeProportion.emit(this.stock); 
     // console.log(this.stock.category) 
     
-    if (bill  == "more" && this.stock.category == "Price") {
-      this.count = this.count +1;
-      
-
-    }
+    
+    // if (bill  == "more" && this.stock.category == "Price") {
+     // this.count = this.count +1;  }
   }
 
   constructor() {    
@@ -68,9 +67,13 @@ export class CardComponent implements OnInit {
   ngOnInit() {
     this.repeat = [ this.altern ];
 
+    if (this.stock.category == "Stocks") {      
+      this.StocksZahl = true;
+      }
+
     if (this.stock.category == "Price") {
-    this.count = 1;
-    this.aktienZahl = true;
+    this.count = 1 * 10;
+    this.PriceZahl = true;
     }
 
   }

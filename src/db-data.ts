@@ -20,10 +20,10 @@ export const STOCKS: any = [
 
     {
         id: 3,
-        description: 'Money',
+        description: 'More Money',
         longDescription: "Learn the modern Ngrx Ecosystem, including Store, Effects, Router Store, Ngrx Entity, Dev Tools and Schematics.",
         iconUrl: '../assets/cash.png',
-        category: 'More Money',
+        category: 'Money',
         lessonsCount: 12
     }
 
