@@ -20,12 +20,13 @@ export class CardComponent implements OnInit {
 
   repeat: any;  
   
-  count:number;
+  count:number=1;
+
+  aktienZahl:boolean= false;
 
 
   showClick(bill:string) {  
-    if (bill  == "more") {
-        this.count = 1;
+    if (bill  == "more" && this.stock.category == "Stocks") {        
         for(var i = 0; i < this.repeat.length; ++i){            
             if(this.repeat[i] == this.stock.iconUrl) 
             this.count++;
@@ -51,7 +52,14 @@ export class CardComponent implements OnInit {
             this.stock.iconUrl, this.stock.iconUrl
             ); }
     }
-    // this.changeProportion.emit(this.stock);   
+    // this.changeProportion.emit(this.stock); 
+    // console.log(this.stock.category) 
+    
+    if (bill  == "more" && this.stock.category == "Price") {
+      this.count = this.count +1;
+      this.aktienZahl = true;
+
+    }
   }
 
   constructor() {    

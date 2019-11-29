@@ -4,5 +4,6 @@ export interface Stock {
     iconUrl: string,
     iconUrl100: string,
     longDescription: string,
+    category: string,
     lessonsCount: number
 }
