@@ -1,56 +1,33 @@
 <div class="stock">
-        <div class="card">
-            <div>
-              {{stock.description + Detailconst}}
-            </div>            
+  <div class="card">
+      <div>
+        {{stock.description + Detailconst}}
+      </div>            
 
-            <div>
+      <div>
+        <div>
 
-                <!-- element for Stocks-->
-              <div *ngIf="StocksZahl" [style.position]="'relative'">
-                <img 
-                *ngFor="let bild of repeat"           
-                [src]="bild"
-                [alt]="bild"
-                > 
-                
-              </div>
-              <!-- element for Price-->
-              <div *ngIf="PriceZahl" [style.position]="'relative'">
-                  
-                  <div>
-                    <p class="aktienzahl">
-                     {{count}} $</p>
-                  </div>
-                  <img            
-                  [src]="stock.iconUrl"
-                  [alt]="stock.iconUrl"
-                  > 
-                  
-                </div>
+          <img *ngFor="let bild of repeat"              
+          [src]="bild"
+          [alt]="bild"
+          > 
+          <!--[src]="this.stock.iconUrl" [alt]="bild"-->
 
-              <!-- element for Money-->
-              <div *ngIf="MoneyZahl" [style.position]="'relative'">
-                  
-                  <div>
-                    <p class="aktienzahl">
-                     {{count}} $</p>
-                  </div>
-                  <img 
-                  *ngFor="let bild of repeat"           
-                  [src]="bild"
-                  [alt]="bild"
-                  > 
-                  
-                </div>
-            </div>            
-            
-            <div>
-              {{stock.longDescription}}
-            </div>
-            <button [style.margin-right]="'5px'" (click)="showClick('less')">less {{stock.category}}</button>
-            <button [style.margin-left]="'5px'" (click)="showClick('more')">more {{stock.category}}</button>
-        </div>    
+          <!--img *ngIf="showDetail(indexNummer);"                
+          [src]="this.stock.iconUrl" alt="stocks"
+          [ngStyle]="setStyles()"  
+          -->
+          
+        </div>
+
+      </div>            
+      
+      <div>
+        {{stock.longDescription}}
       </div>
+      <button [style.margin-right]="'5px'" (click)="showClick('less')">less {{stock.category}}</button>
+      <button [style.margin-left]="'5px'" (click)="showClick('more')">more {{stock.category}}</button>
+  </div>    
+</div>
 
-    <!--  *ngFor="let bilder of count"-->
+<!--  *ngFor="let bilder of count"-->
