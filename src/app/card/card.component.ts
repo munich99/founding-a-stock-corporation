@@ -14,6 +14,8 @@ export class CardComponent implements OnInit {
   stock:Stock;
   @Input()
   altern:string;
+  @Input()
+  categories:string;
 
   @Output()
   changeProportion = new EventEmitter();
@@ -24,56 +26,62 @@ export class CardComponent implements OnInit {
 
   aktienZahl:boolean;
 
+  
+
 
   showClick(bill:string) {  
-    if (bill  == "more" && this.stock.category == "Stocks") {        
-        for(var i = 0; i < this.repeat.length; ++i){            
-            if(this.repeat[i] == this.stock.iconUrl) 
-            this.count++;
-        } 
+    if (this.categories == "Stocks"){
 
-        if (this.count < 5) {
-            this.repeat.push(this.stock.iconUrl);          
-          }
-          else {
-            for(var i = 0; i < 4; ++i){
-              this.repeat.pop();    
-            }            
-            this.repeat.push(this.stock.iconUrl100);           
-          }
+            if (bill  == "more") {
+              console.log(this.categories, "ttt");
+                  
+                          this.count = 1;
+                          for(var i = 0; i < this.repeat.length; ++i){            
+                              if(this.repeat[i] == this.stock.iconUrl) 
+                              this.count++;
+                          } 
+
+                          if (this.count < 5) {
+                              this.repeat.push(this.stock.iconUrl);          
+                            }
+                            else {
+                              for(var i = 0; i < 4; ++i){
+                                this.repeat.pop();    
+                              }            
+                              this.repeat.push(this.stock.iconUrl100);           
+                            }
+            }
+            else {
+                        if (this.repeat[this.repeat.length-1]  == this.stock.iconUrl && this.repeat.length > 1) 
+                          this.repeat.pop()  
+                        else  { 
+                          if (this.repeat == this.stock.iconUrl100) 
+                              this.repeat.splice((this.repeat.length-1), 1,
+                              this.stock.iconUrl,this.stock.iconUrl,
+                              this.stock.iconUrl, this.stock.iconUrl
+                              ); }
+            }
     }
-    else {
-      if (this.repeat[this.repeat.length-1]  == this.stock.iconUrl && this.repeat.length > 1) 
-         this.repeat.pop()  
-      else  { 
-        if (this.repeat == this.stock.iconUrl100) 
-            this.repeat.splice((this.repeat.length-1), 1,
-            this.stock.iconUrl,this.stock.iconUrl,
-            this.stock.iconUrl, this.stock.iconUrl
-            ); }
-    }
-    // this.changeProportion.emit(this.stock); 
-    // console.log(this.stock.category) 
-    
-    if (bill  == "more" && this.stock.category == "Price") {
+
+    if (bill  == "more" && this.stock.category == "Price")
       this.count = this.count +1;
-      
-
-    }
+    if (bill  == "less" && this.stock.category == "Price" && this.count > 1 )
+    this.count = this.count -1;
+ 
+    // this.changeProportion.emit(this.stock);   
   }
+
 
   constructor() {    
    }
 
   ngOnInit() {
-    this.repeat = [ this.altern ];
-
+    this.repeat = [ this.altern ];  
+    
     if (this.stock.category == "Price") {
-    this.count = 1;
-    this.aktienZahl = true;
-    }
-
+      this.count = 1;
+      this.aktienZahl = true;
+      }
+   
   }
-
-  
 }
