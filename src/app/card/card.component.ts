@@ -25,6 +25,7 @@ export class CardComponent implements OnInit {
   count:number;
 
   aktienZahl:boolean;
+  moneyZahl:boolean;
 
   
 
@@ -33,8 +34,7 @@ export class CardComponent implements OnInit {
     if (this.categories == "Stocks"){
 
             if (bill  == "more") {
-              console.log(this.categories, "ttt");
-                  
+                               
                           this.count = 1;
                           for(var i = 0; i < this.repeat.length; ++i){            
                               if(this.repeat[i] == this.stock.iconUrl) 
@@ -69,6 +69,7 @@ export class CardComponent implements OnInit {
     this.count = this.count -1;
  
     // this.changeProportion.emit(this.stock);   
+    console.log(this.count, "counttt")
   }
 
 
@@ -82,6 +83,15 @@ export class CardComponent implements OnInit {
       this.count = 1;
       this.aktienZahl = true;
       }
+
+    if (this.stock.category == "Money") {
+      this.count = 1;
+      this.moneyZahl = true;
+      }
+
+      console.log(this.count, "count")
+
+
    
   }
 }
