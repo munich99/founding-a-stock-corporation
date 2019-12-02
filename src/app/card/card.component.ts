@@ -24,6 +24,8 @@ export class CardComponent implements OnInit {
   
   count:number;
 
+  aktienZahl:boolean;
+
   
 
 
@@ -59,16 +61,27 @@ export class CardComponent implements OnInit {
                               this.stock.iconUrl, this.stock.iconUrl
                               ); }
             }
-          }
+    }
+
+    if (bill  == "more" && this.stock.category == "Price")
+      this.count = this.count +1;
+    if (bill  == "less" && this.stock.category == "Price" && this.count > 1 )
+    this.count = this.count -1;
+ 
     // this.changeProportion.emit(this.stock);   
   }
+
 
   constructor() {    
    }
 
   ngOnInit() {
-    this.repeat = [ this.altern ];   
-    console
-    .log(this.categories)
+    this.repeat = [ this.altern ];  
+    
+    if (this.stock.category == "Price") {
+      this.count = 1;
+      this.aktienZahl = true;
+      }
+   
   }
 }
