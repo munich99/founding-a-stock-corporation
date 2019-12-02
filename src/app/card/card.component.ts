@@ -68,8 +68,18 @@ export class CardComponent implements OnInit {
     if (bill  == "less" && this.stock.category == "Price" && this.count > 1 )
     this.count = this.count -1;
  
-    // this.changeProportion.emit(this.stock);   
-    console.log(this.count, "counttt")
+   // this.changeProportion.emit(this.repeat); 
+  }
+
+  setStyles() {   
+    if(this.repeat.length > 1 && this.repeat.length < 3) 
+    return {"width": "50%", "display": "inline", "margin-top":"10px", "margin-bottom":"10px"};
+
+    if(this.repeat.length > 2 && this.repeat.length < 5) 
+    return {"width": "25%", "display": "inline", "margin-top":"100px", "margin-bottom":"20px"};
+
+    if(this.repeat.length > 4 && this.repeat.length < 12) 
+    return {"width": "20%", "display": "inline", "margin-top":"120px", "margin-bottom":"20px"};
   }
 
 

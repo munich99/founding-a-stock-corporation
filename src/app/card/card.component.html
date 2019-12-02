@@ -18,7 +18,7 @@
                   </div>
 
 
-          <img *ngFor="let bild of repeat"              
+          <img *ngFor="let bild of repeat" [ngStyle]="setStyles()"           
           [src]="bild"
           [alt]="bild"
           > 
