@@ -1,7 +1,9 @@
 <div class="stock">
   <div class="card">
       <div>
-        {{stock.description + Detailconst}}
+        {{stock.description}}<br>
+
+      ++ {{myCountService.numberStocks}} ++
       </div>            
 
       <div>
@@ -9,12 +11,12 @@
                   
                 <div *ngIf="aktienZahl">
                   <p class="aktienzahl">
-                   {{count * 100}} €</p>
+                   {{myCountService.numberPrice}} €</p>
                 </div>
 
                 <div *ngIf="moneyZahl">
                     <p class="aktienzahl">
-                     {{count * 3 }} €</p>
+                     {{myCountService.numberPrice * myCountService.numberStocks }} €</p>
                   </div>
 
 
