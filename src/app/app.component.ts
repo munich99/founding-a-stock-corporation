@@ -14,10 +14,13 @@ export class AppComponent {
 
   countnumber="../../assets/stockpaper.png";
   stock:Stock=STOCKS;
+
   
   
   
   onChangeProportion(xx:Stock){
+
+  //   alert(xx)
 
   // console.log(xx)
   }

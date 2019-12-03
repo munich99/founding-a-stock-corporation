@@ -1,19 +1,26 @@
 <div class="stock">
   <div class="card">
       <div>
-        {{stock.description + Detailconst}}
+        {{stock.description}}<br>
+
+      ++ {{myCountService.numberStocks}} ++
       </div>            
 
       <div>
-          <div [style.position]="'relative'">            
+          <div [style.position]="'relative'" style="background-image:url('../assets/cash-bg.png')">            
                   
                 <div *ngIf="aktienZahl">
                   <p class="aktienzahl">
-                   {{count * 100}} €</p>
+                   {{myCountService.numberPrice}} €</p>
                 </div>
 
+                <div *ngIf="moneyZahl">
+                    <p class="aktienzahl">
+                     {{myCountService.numberPrice * myCountService.numberStocks }} €</p>
+                  </div>
 
-          <img *ngFor="let bild of repeat"              
+
+          <img *ngFor="let bild of repeat" [ngStyle]="setStyles()"           
           [src]="bild"
           [alt]="bild"
           > 

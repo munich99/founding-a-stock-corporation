@@ -2,6 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter, NgModule } from '@angul
 import { STOCKS } from '../../db-data';
 import { Stock } from '../model/stock';
 
+import { MyCountService } from '../my-count.service';
+
 
 
 @Component({
@@ -25,16 +27,16 @@ export class CardComponent implements OnInit {
   count:number;
 
   aktienZahl:boolean;
-
-  
+  moneyZahl:boolean;
 
 
   showClick(bill:string) {  
-    if (this.categories == "Stocks"){
+    if (this.categories == "Stocks"){     
 
             if (bill  == "more") {
-              console.log(this.categories, "ttt");
-                  
+
+                          this.myCountService.numberStocks ++;
+                            
                           this.count = 1;
                           for(var i = 0; i < this.repeat.length; ++i){            
                               if(this.repeat[i] == this.stock.iconUrl) 
@@ -44,14 +46,17 @@ export class CardComponent implements OnInit {
                           if (this.count < 5) {
                               this.repeat.push(this.stock.iconUrl);          
                             }
-                            else {
+                          else {
                               for(var i = 0; i < 4; ++i){
                                 this.repeat.pop();    
                               }            
                               this.repeat.push(this.stock.iconUrl100);           
-                            }
+                          }                          
+                          
             }
             else {
+                        this.myCountService.numberStocks --;
+
                         if (this.repeat[this.repeat.length-1]  == this.stock.iconUrl && this.repeat.length > 1) 
                           this.repeat.pop()  
                         else  { 
@@ -63,17 +68,31 @@ export class CardComponent implements OnInit {
             }
     }
 
-    if (bill  == "more" && this.stock.category == "Price")
-      this.count = this.count +1;
-    if (bill  == "less" && this.stock.category == "Price" && this.count > 1 )
-    this.count = this.count -1;
+
+    if (this.categories == "Price"){
+              if (bill  == "more")              
+              this.myCountService.numberPrice = this.myCountService.numberPrice + 100;
+              if (bill  == "less" && this.myCountService.numberPrice > 100 )
+              this.myCountService.numberPrice = this.myCountService.numberPrice - 100;
+    }
  
-    // this.changeProportion.emit(this.stock);   
+   // this.changeProportion.emit(this.repeat); 
   }
 
+  setStyles() {   
+    if(this.repeat.length > 1 && this.repeat.length < 3) 
+    return {"width": "50%", "display": "inline", "margin-top":"10px", "margin-bottom":"10px"};
 
-  constructor() {    
-   }
+    if(this.repeat.length > 2 && this.repeat.length < 5) 
+    return {"width": "25%", "display": "inline", "margin-top":"100px", "margin-bottom":"20px"};
+
+    if(this.repeat.length > 4 && this.repeat.length < 12) 
+    return {"width": "20%", "display": "inline", "margin-top":"120px", "margin-bottom":"20px"};
+  }
+
+  constructor(private myCountService:MyCountService) {
+    // for globals variables
+  }
 
   ngOnInit() {
     this.repeat = [ this.altern ];  
@@ -82,6 +101,10 @@ export class CardComponent implements OnInit {
       this.count = 1;
       this.aktienZahl = true;
       }
-   
+
+    if (this.stock.category == "Money") {
+      this.count = 1;
+      this.moneyZahl = true;
+      }
   }
 }
