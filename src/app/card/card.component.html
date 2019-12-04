@@ -20,10 +20,12 @@
                   </div>
 
 
-          <img *ngFor="let bild of repeat" [ngStyle]="setStyles()"           
-          [src]="bild"
-          [alt]="bild"
-          > 
+                <img *ngFor="let bild of repeat"  [ngStyle]="setStyles()"         
+                [src]="bild" 
+                [alt]="bild"
+                > 
+
+
           <!--[src]="this.stock.iconUrl" [alt]="bild"-->
 
           <!--img *ngIf="showDetail(indexNummer);"                
@@ -32,9 +34,6 @@
           -->
           
         </div>
-
-
-
       </div>            
       
       <div>

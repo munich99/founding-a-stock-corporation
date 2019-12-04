@@ -15,8 +15,6 @@ export class CardComponent implements OnInit {
   @Input() 
   stock:Stock;
   @Input()
-  altern:string;
-  @Input()
   categories:string;
 
   @Output()
@@ -26,45 +24,39 @@ export class CardComponent implements OnInit {
   
   count:number;
 
+  widthSmaller:string;
+
   aktienZahl:boolean;
   moneyZahl:boolean;
 
-
-  showClick(bill:string) {  
-    if (this.categories == "Stocks"){     
-
+  showClick(bill:string) {     
+    if (this.categories == "Stocks"){   
             if (bill  == "more") {
 
                           this.myCountService.numberStocks ++;
-                            
-                          this.count = 1;
-                          for(var i = 0; i < this.repeat.length; ++i){            
-                              if(this.repeat[i] == this.stock.iconUrl) 
-                              this.count++;
-                          } 
+                          this.repeat = [];
 
-                          if (this.count < 5) {
-                              this.repeat.push(this.stock.iconUrl);          
-                            }
-                          else {
-                              for(var i = 0; i < 4; ++i){
-                                this.repeat.pop();    
-                              }            
-                              this.repeat.push(this.stock.iconUrl100);           
-                          }                          
-                          
-            }
-            else {
+                          let repeatBigImg:number = this.myCountService.numberStocks / 10;
+                          let repeatSmallImg:number = this.myCountService.numberStocks % 10;
+
+                          for(var i = 1; i <= repeatBigImg; ++i)
+                            this.repeat.push(this.stock.iconUrl100);                         
+
+                          for(var i = 0; i < repeatSmallImg; ++i)                            
+                            this.repeat.push(this.stock.iconUrl);  
+            } 
+            
+            if (bill  == "less" && this.myCountService.numberStocks > 1) {
                         this.myCountService.numberStocks --;
 
                         if (this.repeat[this.repeat.length-1]  == this.stock.iconUrl && this.repeat.length > 1) 
                           this.repeat.pop()  
-                        else  { 
-                          if (this.repeat == this.stock.iconUrl100) 
-                              this.repeat.splice((this.repeat.length-1), 1,
-                              this.stock.iconUrl,this.stock.iconUrl,
-                              this.stock.iconUrl, this.stock.iconUrl
-                              ); }
+
+                        if (this.repeat[this.repeat.length-1] == this.stock.iconUrl100){
+                          this.repeat.pop();
+                          for(var i = 1; i <=9; ++i)
+                          this.repeat.push(this.stock.iconUrl);
+                        }
             }
     }
 
@@ -80,31 +72,32 @@ export class CardComponent implements OnInit {
   }
 
   setStyles() {   
-    if(this.repeat.length > 1 && this.repeat.length < 3) 
-    return {"width": "50%", "display": "inline", "margin-top":"10px", "margin-bottom":"10px"};
 
-    if(this.repeat.length > 2 && this.repeat.length < 5) 
-    return {"width": "25%", "display": "inline", "margin-top":"100px", "margin-bottom":"20px"};
+   if (this.categories == "Stocks" && this.repeat.length>1){   
+      
+      let widthSmallerSource = this.repeat.length % 10;      
+     
+      this.widthSmaller = 100/widthSmallerSource + "%"; 
 
-    if(this.repeat.length > 4 && this.repeat.length < 12) 
-    return {"width": "20%", "display": "inline", "margin-top":"120px", "margin-bottom":"20px"};
+      if (this.repeat.length<10)
+      return {"width": this.widthSmaller} 
+      else
+      return {"width":"10%"} 
+    }
   }
 
   constructor(private myCountService:MyCountService) {
     // for globals variables
   }
 
-  ngOnInit() {
-    this.repeat = [ this.altern ];  
+  ngOnInit() {   
+    this.repeat = [ this.stock.iconUrl ];  
     
-    if (this.stock.category == "Price") {
-      this.count = 1;
-      this.aktienZahl = true;
-      }
-
-    if (this.stock.category == "Money") {
-      this.count = 1;
-      this.moneyZahl = true;
-      }
+    if (this.stock.category == "Price")      
+      this.aktienZahl = true; 
+    if (this.stock.category == "Money")     
+      this.moneyZahl = true;  
+      
+      console.log(this.myCountService.numberStocks, "stocksssss")  
   }
 }

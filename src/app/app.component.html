@@ -4,7 +4,9 @@ say new-idea-img
 <app-card  *ngFor="let stocks of stock"
 [stock]="stocks"
 (changeProportion)="onChangeProportion($event)"
-[altern] = "stocks.iconUrl"
+
 [categories] ="stocks.category"
 >
 </app-card>
+
+<img src="../assets/cash.png">
