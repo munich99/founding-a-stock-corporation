@@ -1,13 +1,11 @@
-<div class="stock">
+<div class="stock" style="background-image: url('../../assets/bg.jpg'); ">   
   <div class="card">
       <div>
         {{stock.description}}<br>
-
-      ++ {{myCountService.numberStocks}} ++
       </div>            
 
       <div>
-          <div [style.position]="'relative'" style="background-image:url('../assets/cash-bg.png')">            
+          <div [style.position]="'relative'" [ngStyle]="backgroundImage()">            
                   
                 <div *ngIf="aktienZahl">
                   <p class="aktienzahl">
@@ -16,22 +14,14 @@
 
                 <div *ngIf="moneyZahl">
                     <p class="aktienzahl">
-                     {{myCountService.numberPrice * myCountService.numberStocks }} €</p>
+                     {{myCountService.numberPrice * 1000 * myCountService.numberStocks | number}} €</p>
                   </div>
 
 
                 <img *ngFor="let bild of repeat"  [ngStyle]="setStyles()"         
                 [src]="bild" 
-                [alt]="bild"
-                > 
-
-
-          <!--[src]="this.stock.iconUrl" [alt]="bild"-->
-
-          <!--img *ngIf="showDetail(indexNummer);"                
-          [src]="this.stock.iconUrl" alt="stocks"
-          [ngStyle]="setStyles()"  
-          -->
+                alt={{stock.description}}
+                >  
           
         </div>
       </div>            
@@ -39,9 +29,19 @@
       <div>
         {{stock.longDescription}}
       </div>
-      <button [style.margin-right]="'5px'" (click)="showClick('less')">less {{stock.category}}</button>
-      <button [style.margin-left]="'5px'" (click)="showClick('more')">more {{stock.category}}</button>
+      <button [style.margin-right]="'5px'"
+       (click)="showClick('less')"
+       *ngIf="!moneyZahl">less {{stock.category}}
+      </button>
+      <button [style.margin-left]="'5px'" 
+       (click)="showClick('more')"
+       *ngIf="!moneyZahl">more {{stock.category}}
+      </button>
+      
+      <select [style.margin-left]="'5px'" *ngIf="moneyZahl">
+          <option>Währung</option>
+          <option>Option 2</option>
+          <option>Option 3</option>
+        </select>
   </div>    
 </div>
-
-<!--  *ngFor="let bilder of count"-->

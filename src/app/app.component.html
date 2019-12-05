@@ -1,12 +1,12 @@
 
-say new-idea-img
+<app-header></app-header>
 
-<app-card  *ngFor="let stocks of stock"
-[stock]="stocks"
-(changeProportion)="onChangeProportion($event)"
+<div class="left-side"> 
+    <app-card  *ngFor="let stocks of stock"
+    [stock]="stocks"
+    (changeProportion)="onChangeProportion($event)"
 
-[categories] ="stocks.category"
->
-</app-card>
-
-<img src="../assets/cash.png">
+    [categories] ="stocks.category"
+    >
+    </app-card>
+</div>

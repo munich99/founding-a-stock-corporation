@@ -67,6 +67,14 @@ export class CardComponent implements OnInit {
               if (bill  == "less" && this.myCountService.numberPrice > 100 )
               this.myCountService.numberPrice = this.myCountService.numberPrice - 100;
     }
+
+   /* if (this.categories == "Money"){
+      if (bill  == "more")              
+      this.myCountService.numberStocks = this.myCountService.numberStocks + 1;
+      if (bill  == "less" && this.myCountService.numberPrice > 100 )
+      this.myCountService.numberPrice = this.myCountService.numberPrice - 100;
+    }
+    */
  
    // this.changeProportion.emit(this.repeat); 
   }
@@ -86,6 +94,11 @@ export class CardComponent implements OnInit {
     }
   }
 
+  backgroundImage() {
+    if (this.moneyZahl)
+    return {"background-image":"url('../assets/cash-bg.png'"}
+  } 
+
   constructor(private myCountService:MyCountService) {
     // for globals variables
   }
@@ -97,7 +110,5 @@ export class CardComponent implements OnInit {
       this.aktienZahl = true; 
     if (this.stock.category == "Money")     
       this.moneyZahl = true;  
-      
-      console.log(this.myCountService.numberStocks, "stocksssss")  
   }
 }
