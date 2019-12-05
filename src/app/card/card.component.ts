@@ -94,11 +94,6 @@ export class CardComponent implements OnInit {
     }
   }
 
-  backgroundImage() {
-    if (this.moneyZahl)
-    return {"background-image":"url('../assets/cash-bg.png'"}
-  } 
-
   constructor(private myCountService:MyCountService) {
     // for globals variables
   }

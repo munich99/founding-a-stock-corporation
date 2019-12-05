@@ -1,12 +1,17 @@
 
 <app-header></app-header>
 
-<div class="left-side"> 
-    <app-card  *ngFor="let stocks of stock"
-    [stock]="stocks"
-    (changeProportion)="onChangeProportion($event)"
 
-    [categories] ="stocks.category"
-    >
-    </app-card>
+<div class="left-side">
+    <div [style.display]="'inline-block'" > 
+        <app-card  *ngFor="let stocks of stock"
+        [stock]="stocks"
+        (changeProportion)="onChangeProportion($event)"
+
+        [categories] ="stocks.category"
+        >
+        </app-card>
+    </div>
 </div>
+
+<app-content></app-content>

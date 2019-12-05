@@ -6,12 +6,14 @@ import { CardComponent } from './card/card.component';
 
 import { MyCountService } from '../app/my-count.service'
 import { HeaderComponent } from './header/header.component';
+import { ContentComponent } from './content/content.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       CardComponent,
-      HeaderComponent
+      HeaderComponent,
+      ContentComponent
    ],
    imports: [
       BrowserModule

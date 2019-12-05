@@ -11,10 +11,10 @@ body {
     font-size: 1.2em;    
     display: inline-block;
     margin-right: 1em;
+    background-color: white;
 }
 
-.card {    
-    margin-bottom: 40px;
+.card {        
     text-align: center;
     border-radius: 4px;
     padding: 20px 0;
@@ -29,3 +29,10 @@ body {
   .left-side {
     padding-left:10%!important;
   }
+
+  h1 {
+    background-color: #6432fa;
+    color: white;
+    padding: 0.75em;
+    font-size: 2.5em;
+}
