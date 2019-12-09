@@ -7,4 +7,5 @@ export class MyCountService {
 numberStocks:number = 1;
 numberPrice:number = 100;
 
+myCurrency:any = "EUR";
 }

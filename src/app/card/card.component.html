@@ -9,12 +9,12 @@
                   
                 <div *ngIf="aktienZahl">
                   <p class="aktienzahl">
-                   {{myCountService.numberPrice}} €</p>
+                   {{myCountService.numberPrice | currency:myCountService.myCurrency}}<br>each</p>
                 </div>
 
                 <div *ngIf="moneyZahl">
                     <p class="aktienzahl">
-                     {{myCountService.numberPrice * 1000 * myCountService.numberStocks | number}} €</p>
+                     {{myCountService.numberPrice * 1000 * myCountService.numberStocks | currency:myCountService.myCurrency}}</p>
                   </div>
 
 
@@ -29,19 +29,19 @@
       <div>
         {{stock.longDescription}}
       </div>
-      <button [style.margin-right]="'5px'"
+      <button
        (click)="showClick('less')"
        *ngIf="!moneyZahl">less {{stock.category}}
       </button>
-      <button [style.margin-left]="'5px'" 
+      <button
        (click)="showClick('more')"
        *ngIf="!moneyZahl">more {{stock.category}}
       </button>
       
-      <select [style.margin-left]="'5px'" *ngIf="moneyZahl">
+      <select *ngIf="moneyZahl" (change)="onItemChange($event.value)">
           <option>Währung</option>
-          <option>Option 2</option>
+          <option value="test">Dollar</option>
           <option>Option 3</option>
         </select>
-  </div>    
+  </div>   
 </div>

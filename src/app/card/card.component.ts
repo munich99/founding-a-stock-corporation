@@ -28,6 +28,10 @@ export class CardComponent implements OnInit {
 
   aktienZahl:boolean;
   moneyZahl:boolean;
+  
+  onItemChange(xxx){
+    alert(xxx)
+  }
 
   showClick(bill:string) {     
     if (this.categories == "Stocks"){   
