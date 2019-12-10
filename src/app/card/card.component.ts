@@ -1,8 +1,13 @@
 import { Component, OnInit, Input, Output, EventEmitter, NgModule } from '@angular/core';
-import { STOCKS } from '../../db-data';
+
+import { CURRENCY } from '../../db-currency';
+import { Currency } from '../model/currency';
+
 import { Stock } from '../model/stock';
 
 import { MyCountService } from '../my-count.service';
+
+
 
 
 
@@ -28,9 +33,17 @@ export class CardComponent implements OnInit {
 
   aktienZahl:boolean;
   moneyZahl:boolean;
+
+  currency:Currency=CURRENCY;
+
+  // stock:Stock=STOCKS;
   
-  onItemChange(xxx){
-    alert(xxx)
+  
+  onChange(deviceValue:string) {
+
+    this.myCountService.myCurrency = deviceValue // * this.currency.currencyRate;
+    this.myCountService.numberPrice = this.myCountService.numberPrice // *2;    
+ 
   }
 
   showClick(bill:string) {     
@@ -108,6 +121,8 @@ export class CardComponent implements OnInit {
     if (this.stock.category == "Price")      
       this.aktienZahl = true; 
     if (this.stock.category == "Money")     
-      this.moneyZahl = true;  
+      this.moneyZahl = true; 
+      
+    console.log(this.currency, "dsafasf")
   }
 }

@@ -38,10 +38,10 @@
        *ngIf="!moneyZahl">more {{stock.category}}
       </button>
       
-      <select *ngIf="moneyZahl" (change)="onItemChange($event.value)">
-          <option>Währung</option>
-          <option value="test">Dollar</option>
-          <option>Option 3</option>
-        </select>
+      
+        <select *ngIf="moneyZahl"        
+        (change)="onChange($event.target.value, $event.zz)">
+            <option *ngFor="let cur of currency" [zz]="'rr'">{{cur.money}}</option>
+        </select>      
   </div>   
 </div>
