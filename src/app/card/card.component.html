@@ -40,8 +40,8 @@
       
       
         <select *ngIf="moneyZahl"        
-        (change)="onChange($event.target.value, $event.zz)">
-            <option *ngFor="let cur of currency" [zz]="'rr'">{{cur.money}}</option>
+        (change)="onChange($event.target.value)">
+            <option *ngFor="let cur of currency">{{cur.money}}</option>
         </select>      
   </div>   
 </div>
