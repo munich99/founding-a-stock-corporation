@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, NgModule } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { CURRENCY } from '../../db-currency';
 import { Currency } from '../model/currency';
@@ -36,14 +36,15 @@ export class CardComponent implements OnInit {
 
   currency:Currency=CURRENCY;
 
-  // stock:Stock=STOCKS;
-  
-  
-  onChange(deviceValue:string) {
-
-    this.myCountService.myCurrency = deviceValue // * this.currency.currencyRate;
-    this.myCountService.numberPrice = this.myCountService.numberPrice // *2;    
  
+  onChangeCurrency:any = this.currency[0];
+  
+  onChange() {    
+
+    console.log(this.onChangeCurrency,"tt");
+
+    this.myCountService.myCurrency = this.onChangeCurrency.money;
+    this.myCountService.currencyRate = this.onChangeCurrency.currencyRate;
   }
 
   showClick(bill:string) {     
@@ -123,6 +124,6 @@ export class CardComponent implements OnInit {
     if (this.stock.category == "Money")     
       this.moneyZahl = true; 
       
-    console.log(this.currency, "dsafasf")
+    
   }
 }

@@ -8,4 +8,5 @@ numberStocks:number = 1;
 numberPrice:number = 100;
 
 myCurrency:string = "EUR";
+currencyRate:number = 1;
 }
